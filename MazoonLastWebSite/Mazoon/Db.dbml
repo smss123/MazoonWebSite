@@ -1,1 +1,92 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="W_MazoonWebSite" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CODER-PC;Initial Catalog=W_MazoonWebSite;Integrated Security=True" SettingsObjectName="Mazoon.Properties.Settings" SettingsPropertyName="W_MazoonWebSiteConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MainInfo" Member="MainInfos">
+    <Type Name="MainInfo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumbers" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Emails" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArTitle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnTitle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OurServiceBanner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OurServiceEnHeaderText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OurServiceArHeaderText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutUsBanner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutUsArText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutUsEnText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutUsArDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AboutUsEnDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OurClaintBanner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OurClaintArText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OurClaintEnText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContactUsBanner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContactUsArText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContactUsEnText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FaceBook" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tweeter" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GooglePlus" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="YouTube" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MainSlider" Member="MainSliders">
+    <Type Name="MainSlider">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SlideImage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArHeader" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnHeader" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Linker" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OurClaint" Member="OurClaints">
+    <Type Name="OurClaint">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArClaint" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnClaint" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Logo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OurService" Member="OurServices">
+    <Type Name="OurService">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArServiceName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ArServiceDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ServiceImage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnServiceName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Linker" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShowCategory" Member="ShowCategories">
+    <Type Name="ShowCategory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArShowName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Icon" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnShowName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArBannerText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnBannerText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ShowCategory_ShowDetail" Member="ShowDetails" ThisKey="ID" OtherKey="ShowCategoryID" Type="ShowDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShowDetails" Member="ShowDetails">
+    <Type Name="ShowDetail">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EnName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Images" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShowCategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ShowCategory_ShowDetail" Member="ShowCategory" ThisKey="ShowCategoryID" OtherKey="ID" Type="ShowCategory" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

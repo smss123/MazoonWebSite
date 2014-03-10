@@ -22,6 +22,7 @@ namespace Mazoon
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="W_MazoonWebSite")]
 	public partial class DbDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -29,7 +30,34 @@ namespace Mazoon
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertMainInfo(MainInfo instance);
+    partial void UpdateMainInfo(MainInfo instance);
+    partial void DeleteMainInfo(MainInfo instance);
+    partial void InsertMainSlider(MainSlider instance);
+    partial void UpdateMainSlider(MainSlider instance);
+    partial void DeleteMainSlider(MainSlider instance);
+    partial void InsertOurClaint(OurClaint instance);
+    partial void UpdateOurClaint(OurClaint instance);
+    partial void DeleteOurClaint(OurClaint instance);
+    partial void InsertOurService(OurService instance);
+    partial void UpdateOurService(OurService instance);
+    partial void DeleteOurService(OurService instance);
+    partial void InsertShowCategory(ShowCategory instance);
+    partial void UpdateShowCategory(ShowCategory instance);
+    partial void DeleteShowCategory(ShowCategory instance);
+    partial void InsertShowDetail(ShowDetail instance);
+    partial void UpdateShowDetail(ShowDetail instance);
+    partial void DeleteShowDetail(ShowDetail instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
+		
+		public DbDataContext() : 
+				base(global::Mazoon.Properties.Settings.Default.W_MazoonWebSiteConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public DbDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +81,1813 @@ namespace Mazoon
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<MainInfo> MainInfos
+		{
+			get
+			{
+				return this.GetTable<MainInfo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MainSlider> MainSliders
+		{
+			get
+			{
+				return this.GetTable<MainSlider>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OurClaint> OurClaints
+		{
+			get
+			{
+				return this.GetTable<OurClaint>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OurService> OurServices
+		{
+			get
+			{
+				return this.GetTable<OurService>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ShowCategory> ShowCategories
+		{
+			get
+			{
+				return this.GetTable<ShowCategory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ShowDetail> ShowDetails
+		{
+			get
+			{
+				return this.GetTable<ShowDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MainInfo")]
+	public partial class MainInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ArAddress;
+		
+		private string _EnAddress;
+		
+		private string _PhoneNumbers;
+		
+		private string _Emails;
+		
+		private string _ArTitle;
+		
+		private string _EnTitle;
+		
+		private string _OurServiceBanner;
+		
+		private string _OurServiceEnHeaderText;
+		
+		private string _OurServiceArHeaderText;
+		
+		private string _AboutUsBanner;
+		
+		private string _AboutUsArText;
+		
+		private string _AboutUsEnText;
+		
+		private string _AboutUsArDescription;
+		
+		private string _AboutUsEnDescription;
+		
+		private string _OurClaintBanner;
+		
+		private string _OurClaintArText;
+		
+		private string _OurClaintEnText;
+		
+		private string _ContactUsBanner;
+		
+		private string _ContactUsArText;
+		
+		private string _ContactUsEnText;
+		
+		private string _FaceBook;
+		
+		private string _Tweeter;
+		
+		private string _GooglePlus;
+		
+		private string _YouTube;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnArAddressChanging(string value);
+    partial void OnArAddressChanged();
+    partial void OnEnAddressChanging(string value);
+    partial void OnEnAddressChanged();
+    partial void OnPhoneNumbersChanging(string value);
+    partial void OnPhoneNumbersChanged();
+    partial void OnEmailsChanging(string value);
+    partial void OnEmailsChanged();
+    partial void OnArTitleChanging(string value);
+    partial void OnArTitleChanged();
+    partial void OnEnTitleChanging(string value);
+    partial void OnEnTitleChanged();
+    partial void OnOurServiceBannerChanging(string value);
+    partial void OnOurServiceBannerChanged();
+    partial void OnOurServiceEnHeaderTextChanging(string value);
+    partial void OnOurServiceEnHeaderTextChanged();
+    partial void OnOurServiceArHeaderTextChanging(string value);
+    partial void OnOurServiceArHeaderTextChanged();
+    partial void OnAboutUsBannerChanging(string value);
+    partial void OnAboutUsBannerChanged();
+    partial void OnAboutUsArTextChanging(string value);
+    partial void OnAboutUsArTextChanged();
+    partial void OnAboutUsEnTextChanging(string value);
+    partial void OnAboutUsEnTextChanged();
+    partial void OnAboutUsArDescriptionChanging(string value);
+    partial void OnAboutUsArDescriptionChanged();
+    partial void OnAboutUsEnDescriptionChanging(string value);
+    partial void OnAboutUsEnDescriptionChanged();
+    partial void OnOurClaintBannerChanging(string value);
+    partial void OnOurClaintBannerChanged();
+    partial void OnOurClaintArTextChanging(string value);
+    partial void OnOurClaintArTextChanged();
+    partial void OnOurClaintEnTextChanging(string value);
+    partial void OnOurClaintEnTextChanged();
+    partial void OnContactUsBannerChanging(string value);
+    partial void OnContactUsBannerChanged();
+    partial void OnContactUsArTextChanging(string value);
+    partial void OnContactUsArTextChanged();
+    partial void OnContactUsEnTextChanging(string value);
+    partial void OnContactUsEnTextChanged();
+    partial void OnFaceBookChanging(string value);
+    partial void OnFaceBookChanged();
+    partial void OnTweeterChanging(string value);
+    partial void OnTweeterChanged();
+    partial void OnGooglePlusChanging(string value);
+    partial void OnGooglePlusChanged();
+    partial void OnYouTubeChanging(string value);
+    partial void OnYouTubeChanged();
+    #endregion
+		
+		public MainInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArAddress", DbType="NVarChar(MAX)")]
+		public string ArAddress
+		{
+			get
+			{
+				return this._ArAddress;
+			}
+			set
+			{
+				if ((this._ArAddress != value))
+				{
+					this.OnArAddressChanging(value);
+					this.SendPropertyChanging();
+					this._ArAddress = value;
+					this.SendPropertyChanged("ArAddress");
+					this.OnArAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnAddress", DbType="NVarChar(MAX)")]
+		public string EnAddress
+		{
+			get
+			{
+				return this._EnAddress;
+			}
+			set
+			{
+				if ((this._EnAddress != value))
+				{
+					this.OnEnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._EnAddress = value;
+					this.SendPropertyChanged("EnAddress");
+					this.OnEnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumbers", DbType="NVarChar(MAX)")]
+		public string PhoneNumbers
+		{
+			get
+			{
+				return this._PhoneNumbers;
+			}
+			set
+			{
+				if ((this._PhoneNumbers != value))
+				{
+					this.OnPhoneNumbersChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumbers = value;
+					this.SendPropertyChanged("PhoneNumbers");
+					this.OnPhoneNumbersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Emails", DbType="NVarChar(MAX)")]
+		public string Emails
+		{
+			get
+			{
+				return this._Emails;
+			}
+			set
+			{
+				if ((this._Emails != value))
+				{
+					this.OnEmailsChanging(value);
+					this.SendPropertyChanging();
+					this._Emails = value;
+					this.SendPropertyChanged("Emails");
+					this.OnEmailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArTitle", DbType="NVarChar(MAX)")]
+		public string ArTitle
+		{
+			get
+			{
+				return this._ArTitle;
+			}
+			set
+			{
+				if ((this._ArTitle != value))
+				{
+					this.OnArTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ArTitle = value;
+					this.SendPropertyChanged("ArTitle");
+					this.OnArTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnTitle", DbType="NVarChar(MAX)")]
+		public string EnTitle
+		{
+			get
+			{
+				return this._EnTitle;
+			}
+			set
+			{
+				if ((this._EnTitle != value))
+				{
+					this.OnEnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._EnTitle = value;
+					this.SendPropertyChanged("EnTitle");
+					this.OnEnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurServiceBanner", DbType="NVarChar(MAX)")]
+		public string OurServiceBanner
+		{
+			get
+			{
+				return this._OurServiceBanner;
+			}
+			set
+			{
+				if ((this._OurServiceBanner != value))
+				{
+					this.OnOurServiceBannerChanging(value);
+					this.SendPropertyChanging();
+					this._OurServiceBanner = value;
+					this.SendPropertyChanged("OurServiceBanner");
+					this.OnOurServiceBannerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurServiceEnHeaderText", DbType="NVarChar(MAX)")]
+		public string OurServiceEnHeaderText
+		{
+			get
+			{
+				return this._OurServiceEnHeaderText;
+			}
+			set
+			{
+				if ((this._OurServiceEnHeaderText != value))
+				{
+					this.OnOurServiceEnHeaderTextChanging(value);
+					this.SendPropertyChanging();
+					this._OurServiceEnHeaderText = value;
+					this.SendPropertyChanged("OurServiceEnHeaderText");
+					this.OnOurServiceEnHeaderTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurServiceArHeaderText", DbType="NVarChar(MAX)")]
+		public string OurServiceArHeaderText
+		{
+			get
+			{
+				return this._OurServiceArHeaderText;
+			}
+			set
+			{
+				if ((this._OurServiceArHeaderText != value))
+				{
+					this.OnOurServiceArHeaderTextChanging(value);
+					this.SendPropertyChanging();
+					this._OurServiceArHeaderText = value;
+					this.SendPropertyChanged("OurServiceArHeaderText");
+					this.OnOurServiceArHeaderTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AboutUsBanner", DbType="NVarChar(MAX)")]
+		public string AboutUsBanner
+		{
+			get
+			{
+				return this._AboutUsBanner;
+			}
+			set
+			{
+				if ((this._AboutUsBanner != value))
+				{
+					this.OnAboutUsBannerChanging(value);
+					this.SendPropertyChanging();
+					this._AboutUsBanner = value;
+					this.SendPropertyChanged("AboutUsBanner");
+					this.OnAboutUsBannerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AboutUsArText", DbType="NVarChar(MAX)")]
+		public string AboutUsArText
+		{
+			get
+			{
+				return this._AboutUsArText;
+			}
+			set
+			{
+				if ((this._AboutUsArText != value))
+				{
+					this.OnAboutUsArTextChanging(value);
+					this.SendPropertyChanging();
+					this._AboutUsArText = value;
+					this.SendPropertyChanged("AboutUsArText");
+					this.OnAboutUsArTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AboutUsEnText", DbType="NVarChar(MAX)")]
+		public string AboutUsEnText
+		{
+			get
+			{
+				return this._AboutUsEnText;
+			}
+			set
+			{
+				if ((this._AboutUsEnText != value))
+				{
+					this.OnAboutUsEnTextChanging(value);
+					this.SendPropertyChanging();
+					this._AboutUsEnText = value;
+					this.SendPropertyChanged("AboutUsEnText");
+					this.OnAboutUsEnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AboutUsArDescription", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string AboutUsArDescription
+		{
+			get
+			{
+				return this._AboutUsArDescription;
+			}
+			set
+			{
+				if ((this._AboutUsArDescription != value))
+				{
+					this.OnAboutUsArDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._AboutUsArDescription = value;
+					this.SendPropertyChanged("AboutUsArDescription");
+					this.OnAboutUsArDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AboutUsEnDescription", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string AboutUsEnDescription
+		{
+			get
+			{
+				return this._AboutUsEnDescription;
+			}
+			set
+			{
+				if ((this._AboutUsEnDescription != value))
+				{
+					this.OnAboutUsEnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._AboutUsEnDescription = value;
+					this.SendPropertyChanged("AboutUsEnDescription");
+					this.OnAboutUsEnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurClaintBanner", DbType="NVarChar(MAX)")]
+		public string OurClaintBanner
+		{
+			get
+			{
+				return this._OurClaintBanner;
+			}
+			set
+			{
+				if ((this._OurClaintBanner != value))
+				{
+					this.OnOurClaintBannerChanging(value);
+					this.SendPropertyChanging();
+					this._OurClaintBanner = value;
+					this.SendPropertyChanged("OurClaintBanner");
+					this.OnOurClaintBannerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurClaintArText", DbType="NVarChar(MAX)")]
+		public string OurClaintArText
+		{
+			get
+			{
+				return this._OurClaintArText;
+			}
+			set
+			{
+				if ((this._OurClaintArText != value))
+				{
+					this.OnOurClaintArTextChanging(value);
+					this.SendPropertyChanging();
+					this._OurClaintArText = value;
+					this.SendPropertyChanged("OurClaintArText");
+					this.OnOurClaintArTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurClaintEnText", DbType="NVarChar(MAX)")]
+		public string OurClaintEnText
+		{
+			get
+			{
+				return this._OurClaintEnText;
+			}
+			set
+			{
+				if ((this._OurClaintEnText != value))
+				{
+					this.OnOurClaintEnTextChanging(value);
+					this.SendPropertyChanging();
+					this._OurClaintEnText = value;
+					this.SendPropertyChanged("OurClaintEnText");
+					this.OnOurClaintEnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactUsBanner", DbType="NVarChar(MAX)")]
+		public string ContactUsBanner
+		{
+			get
+			{
+				return this._ContactUsBanner;
+			}
+			set
+			{
+				if ((this._ContactUsBanner != value))
+				{
+					this.OnContactUsBannerChanging(value);
+					this.SendPropertyChanging();
+					this._ContactUsBanner = value;
+					this.SendPropertyChanged("ContactUsBanner");
+					this.OnContactUsBannerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactUsArText", DbType="NVarChar(MAX)")]
+		public string ContactUsArText
+		{
+			get
+			{
+				return this._ContactUsArText;
+			}
+			set
+			{
+				if ((this._ContactUsArText != value))
+				{
+					this.OnContactUsArTextChanging(value);
+					this.SendPropertyChanging();
+					this._ContactUsArText = value;
+					this.SendPropertyChanged("ContactUsArText");
+					this.OnContactUsArTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactUsEnText", DbType="NVarChar(MAX)")]
+		public string ContactUsEnText
+		{
+			get
+			{
+				return this._ContactUsEnText;
+			}
+			set
+			{
+				if ((this._ContactUsEnText != value))
+				{
+					this.OnContactUsEnTextChanging(value);
+					this.SendPropertyChanging();
+					this._ContactUsEnText = value;
+					this.SendPropertyChanged("ContactUsEnText");
+					this.OnContactUsEnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FaceBook", DbType="NVarChar(MAX)")]
+		public string FaceBook
+		{
+			get
+			{
+				return this._FaceBook;
+			}
+			set
+			{
+				if ((this._FaceBook != value))
+				{
+					this.OnFaceBookChanging(value);
+					this.SendPropertyChanging();
+					this._FaceBook = value;
+					this.SendPropertyChanged("FaceBook");
+					this.OnFaceBookChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tweeter", DbType="NVarChar(MAX)")]
+		public string Tweeter
+		{
+			get
+			{
+				return this._Tweeter;
+			}
+			set
+			{
+				if ((this._Tweeter != value))
+				{
+					this.OnTweeterChanging(value);
+					this.SendPropertyChanging();
+					this._Tweeter = value;
+					this.SendPropertyChanged("Tweeter");
+					this.OnTweeterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GooglePlus", DbType="NVarChar(MAX)")]
+		public string GooglePlus
+		{
+			get
+			{
+				return this._GooglePlus;
+			}
+			set
+			{
+				if ((this._GooglePlus != value))
+				{
+					this.OnGooglePlusChanging(value);
+					this.SendPropertyChanging();
+					this._GooglePlus = value;
+					this.SendPropertyChanged("GooglePlus");
+					this.OnGooglePlusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YouTube", DbType="NVarChar(MAX)")]
+		public string YouTube
+		{
+			get
+			{
+				return this._YouTube;
+			}
+			set
+			{
+				if ((this._YouTube != value))
+				{
+					this.OnYouTubeChanging(value);
+					this.SendPropertyChanging();
+					this._YouTube = value;
+					this.SendPropertyChanged("YouTube");
+					this.OnYouTubeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MainSlider")]
+	public partial class MainSlider : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _SlideImage;
+		
+		private string _ArHeader;
+		
+		private string _ArDescription;
+		
+		private string _EnHeader;
+		
+		private string _EnDescription;
+		
+		private string _Linker;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSlideImageChanging(string value);
+    partial void OnSlideImageChanged();
+    partial void OnArHeaderChanging(string value);
+    partial void OnArHeaderChanged();
+    partial void OnArDescriptionChanging(string value);
+    partial void OnArDescriptionChanged();
+    partial void OnEnHeaderChanging(string value);
+    partial void OnEnHeaderChanged();
+    partial void OnEnDescriptionChanging(string value);
+    partial void OnEnDescriptionChanged();
+    partial void OnLinkerChanging(string value);
+    partial void OnLinkerChanged();
+    #endregion
+		
+		public MainSlider()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SlideImage", DbType="NVarChar(MAX)")]
+		public string SlideImage
+		{
+			get
+			{
+				return this._SlideImage;
+			}
+			set
+			{
+				if ((this._SlideImage != value))
+				{
+					this.OnSlideImageChanging(value);
+					this.SendPropertyChanging();
+					this._SlideImage = value;
+					this.SendPropertyChanged("SlideImage");
+					this.OnSlideImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArHeader", DbType="NVarChar(MAX)")]
+		public string ArHeader
+		{
+			get
+			{
+				return this._ArHeader;
+			}
+			set
+			{
+				if ((this._ArHeader != value))
+				{
+					this.OnArHeaderChanging(value);
+					this.SendPropertyChanging();
+					this._ArHeader = value;
+					this.SendPropertyChanged("ArHeader");
+					this.OnArHeaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArDescription", DbType="NVarChar(MAX)")]
+		public string ArDescription
+		{
+			get
+			{
+				return this._ArDescription;
+			}
+			set
+			{
+				if ((this._ArDescription != value))
+				{
+					this.OnArDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._ArDescription = value;
+					this.SendPropertyChanged("ArDescription");
+					this.OnArDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnHeader", DbType="NVarChar(MAX)")]
+		public string EnHeader
+		{
+			get
+			{
+				return this._EnHeader;
+			}
+			set
+			{
+				if ((this._EnHeader != value))
+				{
+					this.OnEnHeaderChanging(value);
+					this.SendPropertyChanging();
+					this._EnHeader = value;
+					this.SendPropertyChanged("EnHeader");
+					this.OnEnHeaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnDescription", DbType="NVarChar(MAX)")]
+		public string EnDescription
+		{
+			get
+			{
+				return this._EnDescription;
+			}
+			set
+			{
+				if ((this._EnDescription != value))
+				{
+					this.OnEnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._EnDescription = value;
+					this.SendPropertyChanged("EnDescription");
+					this.OnEnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Linker", DbType="NVarChar(MAX)")]
+		public string Linker
+		{
+			get
+			{
+				return this._Linker;
+			}
+			set
+			{
+				if ((this._Linker != value))
+				{
+					this.OnLinkerChanging(value);
+					this.SendPropertyChanging();
+					this._Linker = value;
+					this.SendPropertyChanged("Linker");
+					this.OnLinkerChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OurClaint")]
+	public partial class OurClaint : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ArClaint;
+		
+		private string _EnClaint;
+		
+		private string _Logo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnArClaintChanging(string value);
+    partial void OnArClaintChanged();
+    partial void OnEnClaintChanging(string value);
+    partial void OnEnClaintChanged();
+    partial void OnLogoChanging(string value);
+    partial void OnLogoChanged();
+    #endregion
+		
+		public OurClaint()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArClaint", DbType="NVarChar(MAX)")]
+		public string ArClaint
+		{
+			get
+			{
+				return this._ArClaint;
+			}
+			set
+			{
+				if ((this._ArClaint != value))
+				{
+					this.OnArClaintChanging(value);
+					this.SendPropertyChanging();
+					this._ArClaint = value;
+					this.SendPropertyChanged("ArClaint");
+					this.OnArClaintChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnClaint", DbType="NVarChar(MAX)")]
+		public string EnClaint
+		{
+			get
+			{
+				return this._EnClaint;
+			}
+			set
+			{
+				if ((this._EnClaint != value))
+				{
+					this.OnEnClaintChanging(value);
+					this.SendPropertyChanging();
+					this._EnClaint = value;
+					this.SendPropertyChanged("EnClaint");
+					this.OnEnClaintChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Logo", DbType="NVarChar(MAX)")]
+		public string Logo
+		{
+			get
+			{
+				return this._Logo;
+			}
+			set
+			{
+				if ((this._Logo != value))
+				{
+					this.OnLogoChanging(value);
+					this.SendPropertyChanging();
+					this._Logo = value;
+					this.SendPropertyChanged("Logo");
+					this.OnLogoChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OurService")]
+	public partial class OurService : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ArServiceName;
+		
+		private string _ArServiceDescription;
+		
+		private string _ServiceImage;
+		
+		private string _EnServiceName;
+		
+		private string _EnDescription;
+		
+		private string _Linker;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnArServiceNameChanging(string value);
+    partial void OnArServiceNameChanged();
+    partial void OnArServiceDescriptionChanging(string value);
+    partial void OnArServiceDescriptionChanged();
+    partial void OnServiceImageChanging(string value);
+    partial void OnServiceImageChanged();
+    partial void OnEnServiceNameChanging(string value);
+    partial void OnEnServiceNameChanged();
+    partial void OnEnDescriptionChanging(string value);
+    partial void OnEnDescriptionChanged();
+    partial void OnLinkerChanging(string value);
+    partial void OnLinkerChanged();
+    #endregion
+		
+		public OurService()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArServiceName", DbType="NVarChar(50)")]
+		public string ArServiceName
+		{
+			get
+			{
+				return this._ArServiceName;
+			}
+			set
+			{
+				if ((this._ArServiceName != value))
+				{
+					this.OnArServiceNameChanging(value);
+					this.SendPropertyChanging();
+					this._ArServiceName = value;
+					this.SendPropertyChanged("ArServiceName");
+					this.OnArServiceNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArServiceDescription", DbType="NVarChar(MAX)")]
+		public string ArServiceDescription
+		{
+			get
+			{
+				return this._ArServiceDescription;
+			}
+			set
+			{
+				if ((this._ArServiceDescription != value))
+				{
+					this.OnArServiceDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._ArServiceDescription = value;
+					this.SendPropertyChanged("ArServiceDescription");
+					this.OnArServiceDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceImage", DbType="NVarChar(MAX)")]
+		public string ServiceImage
+		{
+			get
+			{
+				return this._ServiceImage;
+			}
+			set
+			{
+				if ((this._ServiceImage != value))
+				{
+					this.OnServiceImageChanging(value);
+					this.SendPropertyChanging();
+					this._ServiceImage = value;
+					this.SendPropertyChanged("ServiceImage");
+					this.OnServiceImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnServiceName", DbType="NVarChar(MAX)")]
+		public string EnServiceName
+		{
+			get
+			{
+				return this._EnServiceName;
+			}
+			set
+			{
+				if ((this._EnServiceName != value))
+				{
+					this.OnEnServiceNameChanging(value);
+					this.SendPropertyChanging();
+					this._EnServiceName = value;
+					this.SendPropertyChanged("EnServiceName");
+					this.OnEnServiceNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnDescription", DbType="NVarChar(MAX)")]
+		public string EnDescription
+		{
+			get
+			{
+				return this._EnDescription;
+			}
+			set
+			{
+				if ((this._EnDescription != value))
+				{
+					this.OnEnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._EnDescription = value;
+					this.SendPropertyChanged("EnDescription");
+					this.OnEnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Linker", DbType="NVarChar(MAX)")]
+		public string Linker
+		{
+			get
+			{
+				return this._Linker;
+			}
+			set
+			{
+				if ((this._Linker != value))
+				{
+					this.OnLinkerChanging(value);
+					this.SendPropertyChanging();
+					this._Linker = value;
+					this.SendPropertyChanged("Linker");
+					this.OnLinkerChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShowCategory")]
+	public partial class ShowCategory : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ArShowName;
+		
+		private string _ArDescription;
+		
+		private string _Icon;
+		
+		private string _EnShowName;
+		
+		private string _EnDescription;
+		
+		private string _ArBannerText;
+		
+		private string _EnBannerText;
+		
+		private EntitySet<ShowDetail> _ShowDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnArShowNameChanging(string value);
+    partial void OnArShowNameChanged();
+    partial void OnArDescriptionChanging(string value);
+    partial void OnArDescriptionChanged();
+    partial void OnIconChanging(string value);
+    partial void OnIconChanged();
+    partial void OnEnShowNameChanging(string value);
+    partial void OnEnShowNameChanged();
+    partial void OnEnDescriptionChanging(string value);
+    partial void OnEnDescriptionChanged();
+    partial void OnArBannerTextChanging(string value);
+    partial void OnArBannerTextChanged();
+    partial void OnEnBannerTextChanging(string value);
+    partial void OnEnBannerTextChanged();
+    #endregion
+		
+		public ShowCategory()
+		{
+			this._ShowDetails = new EntitySet<ShowDetail>(new Action<ShowDetail>(this.attach_ShowDetails), new Action<ShowDetail>(this.detach_ShowDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArShowName", DbType="NVarChar(MAX)")]
+		public string ArShowName
+		{
+			get
+			{
+				return this._ArShowName;
+			}
+			set
+			{
+				if ((this._ArShowName != value))
+				{
+					this.OnArShowNameChanging(value);
+					this.SendPropertyChanging();
+					this._ArShowName = value;
+					this.SendPropertyChanged("ArShowName");
+					this.OnArShowNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArDescription", DbType="NVarChar(MAX)")]
+		public string ArDescription
+		{
+			get
+			{
+				return this._ArDescription;
+			}
+			set
+			{
+				if ((this._ArDescription != value))
+				{
+					this.OnArDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._ArDescription = value;
+					this.SendPropertyChanged("ArDescription");
+					this.OnArDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Icon", DbType="NVarChar(MAX)")]
+		public string Icon
+		{
+			get
+			{
+				return this._Icon;
+			}
+			set
+			{
+				if ((this._Icon != value))
+				{
+					this.OnIconChanging(value);
+					this.SendPropertyChanging();
+					this._Icon = value;
+					this.SendPropertyChanged("Icon");
+					this.OnIconChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnShowName", DbType="NVarChar(MAX)")]
+		public string EnShowName
+		{
+			get
+			{
+				return this._EnShowName;
+			}
+			set
+			{
+				if ((this._EnShowName != value))
+				{
+					this.OnEnShowNameChanging(value);
+					this.SendPropertyChanging();
+					this._EnShowName = value;
+					this.SendPropertyChanged("EnShowName");
+					this.OnEnShowNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnDescription", DbType="NVarChar(MAX)")]
+		public string EnDescription
+		{
+			get
+			{
+				return this._EnDescription;
+			}
+			set
+			{
+				if ((this._EnDescription != value))
+				{
+					this.OnEnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._EnDescription = value;
+					this.SendPropertyChanged("EnDescription");
+					this.OnEnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArBannerText", DbType="NVarChar(MAX)")]
+		public string ArBannerText
+		{
+			get
+			{
+				return this._ArBannerText;
+			}
+			set
+			{
+				if ((this._ArBannerText != value))
+				{
+					this.OnArBannerTextChanging(value);
+					this.SendPropertyChanging();
+					this._ArBannerText = value;
+					this.SendPropertyChanged("ArBannerText");
+					this.OnArBannerTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnBannerText", DbType="NVarChar(MAX)")]
+		public string EnBannerText
+		{
+			get
+			{
+				return this._EnBannerText;
+			}
+			set
+			{
+				if ((this._EnBannerText != value))
+				{
+					this.OnEnBannerTextChanging(value);
+					this.SendPropertyChanging();
+					this._EnBannerText = value;
+					this.SendPropertyChanged("EnBannerText");
+					this.OnEnBannerTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowCategory_ShowDetail", Storage="_ShowDetails", ThisKey="ID", OtherKey="ShowCategoryID")]
+		public EntitySet<ShowDetail> ShowDetails
+		{
+			get
+			{
+				return this._ShowDetails;
+			}
+			set
+			{
+				this._ShowDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ShowDetails(ShowDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ShowCategory = this;
+		}
+		
+		private void detach_ShowDetails(ShowDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ShowCategory = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShowDetails")]
+	public partial class ShowDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ArName;
+		
+		private string _EnName;
+		
+		private string _Images;
+		
+		private System.Nullable<int> _ShowCategoryID;
+		
+		private EntityRef<ShowCategory> _ShowCategory;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnArNameChanging(string value);
+    partial void OnArNameChanged();
+    partial void OnEnNameChanging(string value);
+    partial void OnEnNameChanged();
+    partial void OnImagesChanging(string value);
+    partial void OnImagesChanged();
+    partial void OnShowCategoryIDChanging(System.Nullable<int> value);
+    partial void OnShowCategoryIDChanged();
+    #endregion
+		
+		public ShowDetail()
+		{
+			this._ShowCategory = default(EntityRef<ShowCategory>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArName", DbType="NVarChar(50)")]
+		public string ArName
+		{
+			get
+			{
+				return this._ArName;
+			}
+			set
+			{
+				if ((this._ArName != value))
+				{
+					this.OnArNameChanging(value);
+					this.SendPropertyChanging();
+					this._ArName = value;
+					this.SendPropertyChanged("ArName");
+					this.OnArNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnName", DbType="NVarChar(50)")]
+		public string EnName
+		{
+			get
+			{
+				return this._EnName;
+			}
+			set
+			{
+				if ((this._EnName != value))
+				{
+					this.OnEnNameChanging(value);
+					this.SendPropertyChanging();
+					this._EnName = value;
+					this.SendPropertyChanged("EnName");
+					this.OnEnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Images", DbType="NVarChar(MAX)")]
+		public string Images
+		{
+			get
+			{
+				return this._Images;
+			}
+			set
+			{
+				if ((this._Images != value))
+				{
+					this.OnImagesChanging(value);
+					this.SendPropertyChanging();
+					this._Images = value;
+					this.SendPropertyChanged("Images");
+					this.OnImagesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShowCategoryID", DbType="Int")]
+		public System.Nullable<int> ShowCategoryID
+		{
+			get
+			{
+				return this._ShowCategoryID;
+			}
+			set
+			{
+				if ((this._ShowCategoryID != value))
+				{
+					if (this._ShowCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnShowCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._ShowCategoryID = value;
+					this.SendPropertyChanged("ShowCategoryID");
+					this.OnShowCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowCategory_ShowDetail", Storage="_ShowCategory", ThisKey="ShowCategoryID", OtherKey="ID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ShowCategory ShowCategory
+		{
+			get
+			{
+				return this._ShowCategory.Entity;
+			}
+			set
+			{
+				ShowCategory previousValue = this._ShowCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._ShowCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ShowCategory.Entity = null;
+						previousValue.ShowDetails.Remove(this);
+					}
+					this._ShowCategory.Entity = value;
+					if ((value != null))
+					{
+						value.ShowDetails.Add(this);
+						this._ShowCategoryID = value.ID;
+					}
+					else
+					{
+						this._ShowCategoryID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ShowCategory");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _UserName;
+		
+		private string _Pwd;
+		
+		private int _ID;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPwdChanging(string value);
+    partial void OnPwdChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    #endregion
+		
+		public User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pwd", DbType="NVarChar(50)")]
+		public string Pwd
+		{
+			get
+			{
+				return this._Pwd;
+			}
+			set
+			{
+				if ((this._Pwd != value))
+				{
+					this.OnPwdChanging(value);
+					this.SendPropertyChanging();
+					this._Pwd = value;
+					this.SendPropertyChanged("Pwd");
+					this.OnPwdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
