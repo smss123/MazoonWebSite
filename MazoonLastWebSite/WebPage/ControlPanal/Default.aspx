@@ -17,14 +17,14 @@
   <body id="login">
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" runat="server">
         <h2 class="form-signin-heading">تسجيل الدخول</h2>
-        <input type="text" class="input-block-level" placeholder="اسم المستخدم">
-        <input type="password" class="input-block-level" placeholder="كلمه المرور">
+        <input id="txtUserName" runat="server" type="text" class="input-block-level" placeholder="اسم المستخدم">
+        <input id="txtPassword" runat="server"  type="password" class="input-block-level" placeholder="كلمه المرور">
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> تزكرني
+       <%--   <input type="checkbox" value="remember-me"> تزكرني--%>
         </label>
-        <button class="btn btn-large btn-primary" type="submit">تسجيل الدخول</button>
+        <asp:Button ID="BtnLogin" class="btn btn-large btn-primary" runat="server" Text="تسجيل الدخول" OnClick="BtnLogin_Click"></asp:Button>
       </form>
 
     </div> <!-- /container -->

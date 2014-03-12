@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
+ using    Mazoon.Users;
 namespace WebPage.ControlPanal
 {
     public partial class Default : System.Web.UI.Page
@@ -12,6 +8,18 @@ namespace WebPage.ControlPanal
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        private  ClsUser user = new ClsUser();
+        protected void BtnLogin_Click(object sender, EventArgs e)
+        {
+            if (user.Login(txtUserName.Value,txtPassword.Value))
+            {
+                 Response.Write("Ok");
+
+            }   else
+	{
+                Response.Write("Not ")   ;
+	}
         }
     }
 }
