@@ -73,6 +73,7 @@
     <Content Include="ControlPanal\images\bg-input-focus.png" />
     <Content Include="ControlPanal\images\bg-input.png" />
     <Content Include="ControlPanal\images\sprite.png" />
+    <Content Include="ControlPanal\SilderManager.aspx" />
     <Content Include="ControlPanal\vendors\bootstrap-datepicker.js" />
     <Content Include="ControlPanal\vendors\bootstrap-wysihtml5\.gitignore" />
     <Content Include="ControlPanal\vendors\bootstrap-wysihtml5\.settings\.gitignore" />
@@ -1027,6 +1028,13 @@
     </Compile>
     <Compile Include="ControlPanal\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanal\SilderManager.aspx.cs">
+      <DependentUpon>SilderManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanal\SilderManager.aspx.designer.cs">
+      <DependentUpon>SilderManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

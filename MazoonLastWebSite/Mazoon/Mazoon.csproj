@@ -47,6 +47,7 @@
       <DependentUpon>Db.dbml</DependentUpon>
     </Compile>
     <Compile Include="IFunctions.cs" />
+    <Compile Include="MainInfosX\ClsMainInfo.cs" />
     <Compile Include="MyData.cs" />
     <Compile Include="OurClaint\ClsOurClaint.cs" />
     <Compile Include="OurService\ClsService.cs" />
